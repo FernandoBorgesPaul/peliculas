@@ -37,6 +37,13 @@ class Movie {
 
   // String toJson() => json.encode(toMap());
 
+  get fullPosterImage {
+    if (this.posterPath != null) {
+      return 'https://image.tmdb.org/t/p/w500${this.posterPath}';
+    }
+    return 'https://i.stack.imgur.com/GNhxO.png';
+  }
+
   factory Movie.fromMap(Map<String, dynamic> json) => Movie(
         adult: json["adult"],
         backdropPath: json["backdrop_path"],

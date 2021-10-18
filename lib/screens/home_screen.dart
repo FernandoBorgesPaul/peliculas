@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:peliculas/providers/movies_providers.dart';
 import 'package:peliculas/widgets/widgets.dart';
+import 'package:provider/provider.dart';
 import '../main.dart';
 
 void main() => runApp(MyApp());
@@ -7,6 +9,11 @@ void main() => runApp(MyApp());
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final moviesProdider = Provider.of<MoviesProvider>(context);
+
+    print(moviesProdider
+        .onDisplayMovies); // Ve al arbol de widgets, encuentra el MoviesProvider y colocala en la instancia de moviesProvider
+
     return Scaffold(
       appBar: AppBar(
         title: Center(
@@ -27,7 +34,9 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
             //tarjeta principales
-            CardSwiper(),
+            CardSwiper(
+              movies: moviesProdider.onDisplayMovies,
+            ),
 
             //Listado HORIZONTAL DE PELICULAS
             MovieSlider(),
