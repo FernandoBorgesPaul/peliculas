@@ -9,10 +9,8 @@ void main() => runApp(MyApp());
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final moviesProdider = Provider.of<MoviesProvider>(context);
-
-    print(moviesProdider
-        .onDisplayMovies); // Ve al arbol de widgets, encuentra el MoviesProvider y colocala en la instancia de moviesProvider
+    final moviesProdider = Provider.of<MoviesProvider>(
+        context); // Ve al arbol de widgets, encuentra el MoviesProvider y colocala en la instancia de moviesProvider
 
     return Scaffold(
       appBar: AppBar(
@@ -39,7 +37,10 @@ class HomeScreen extends StatelessWidget {
             ),
 
             //Listado HORIZONTAL DE PELICULAS
-            MovieSlider(),
+            MovieSlider(
+              movies: moviesProdider.popularMovies,
+              title: 'Populares', // Optional
+            ),
           ],
         ),
       ),
