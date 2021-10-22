@@ -44,6 +44,13 @@ class Movie {
     return 'https://i.stack.imgur.com/GNhxO.png';
   }
 
+  get fullBackdropPath {
+    if (this.posterPath != null) {
+      return 'https://image.tmdb.org/t/p/w500${this.backdropPath}';
+    }
+    return 'https://i.stack.imgur.com/GNhxO.png';
+  }
+
   factory Movie.fromMap(Map<String, dynamic> json) => Movie(
         adult: json["adult"],
         backdropPath: json["backdrop_path"],
