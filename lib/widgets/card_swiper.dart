@@ -39,7 +39,7 @@ class CardSwiper extends StatelessWidget {
           return GestureDetector(
             onTap: () => Navigator.pushNamed(context, 'details',
                 arguments:
-                    'movie-instance'), // Manera de pasar de una pantalla a otra usando Navigator
+                    movie), // Manera de pasar de una pantalla a otra usando Navigator
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: FadeInImage(
