@@ -8,7 +8,6 @@ void main() => runApp(MyApp());
 class DetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    //TODO: Cambiar luego por una instancia  de Movie
     final Movie movie = ModalRoute.of(context)!.settings.arguments as Movie;
     print(movie.title);
 
@@ -21,7 +20,7 @@ class DetailsScreen extends StatelessWidget {
               [
                 _PosterAndTitle(movie),
                 _OverView(movie),
-                CastingCards(),
+                CastingCards(movie.id),
               ],
             ),
           )
